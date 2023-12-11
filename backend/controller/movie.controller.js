@@ -7,7 +7,6 @@ async function addMovie(req, res) {
         const rating = req.body.rating;
         const genre = req.body.genre;
         const studioEmail = req.body.studioEmail;
-
         // Verify if the body provides necessary properties
         if (!title || !date || !rating || !genre || !studioEmail) {
             return res.status(400).json({
@@ -15,7 +14,7 @@ async function addMovie(req, res) {
             });
         }
 
-        const releaseDate = new Date(date);
+        const releaseDate = new Date(date.split('-'));
         const newMovie = new Movie({
             title,
             releaseDate,
@@ -35,6 +34,19 @@ async function addMovie(req, res) {
     }
 }
 
+async function getAllMovies(req, res) {
+    try {
+        return res.json(await Movie.find());
+    }
+    catch (e) {
+        return res.status(500).json({
+            error: e.message,
+            message: "Cannot get all movies"
+        });
+    }
+}
+
 export default {
-    addMovie
+    addMovie,
+    getAllMovies
 }
