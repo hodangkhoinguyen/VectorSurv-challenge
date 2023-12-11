@@ -1,0 +1,27 @@
+.new-movie-form {
+    margin-top: 2rem;
+    border: solid;
+    border-radius: 1rem;
+    width: 50rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem 0;
+}
+
+.parameter-container {
+    margin: 0.25rem;
+}
+
+.form-label {
+    width: 10rem;
+    display: inline-block;
+}
+
+.form-input {
+    display: inline-block;
+    width: 14rem;
+    padding: 0.25rem;
+    box-sizing: border-box;
+}
